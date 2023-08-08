@@ -102,8 +102,8 @@ public class DockTools
 		{
 			return null;
 		}
-//		return null;
-		throw new Error("?" + n);
+		return new ReadOnlyObjectWrapper<>(n.getParent());
+//		throw new Error("?" + n);
 	}
 	
 	
