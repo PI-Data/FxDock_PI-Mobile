@@ -28,7 +28,7 @@ public abstract class FxDockWindow
 	
 	public final FxAction closeWindowAction = new FxAction(this::actionClose);
 	private final BorderPane frame;
-	private final FxDockRootPane root;
+	protected final FxDockRootPane root;
 	
 	
 	public FxDockWindow()
