@@ -211,10 +211,11 @@ public class DockTools
 	// returns true if the window has been closed
 	public static boolean closeWindowUnlessLast(Node n)
 	{
+		// For PI Applications we want the first opened window always to stay opened, because it holds the Menu.
 		FxDockWindow w = getWindow(n);
 		if(w != null)
 		{
-			if(FxDockFramework.getWindowCount() > 1)
+			if(FxDockFramework.getWindowCount() > 1 && FxDockFramework.getWindows().get( 0 ) != w)
 			{
 				// TODO this is not used
 				// w.discardSettings = true;
