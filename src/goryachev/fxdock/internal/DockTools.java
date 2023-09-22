@@ -721,8 +721,8 @@ public class DockTools
 		Node p = getParent(client);
 		double w = client.getWidth();
 		double h = client.getHeight();
-				
-		FxDockWindow win = FxDockFramework.createWindow();
+
+ 		FxDockWindow win = FxDockFramework.createWindowWithId(client.getDockPaneType());
 		win.setContent(client);		
 		
 		win.setX(screenx);
@@ -731,8 +731,10 @@ public class DockTools
 		// moving window after show() seems to cause flicker
 		double op = win.getOpacity();
 		win.setOpacity(0);
-		
-		FxDockFramework.open(win);
+
+		if (!win.isShowing()) {
+			FxDockFramework.open(win);
+		}
 
 		// take into account window decorations
 		// apparently, this is available only after show()
@@ -760,15 +762,17 @@ public class DockTools
 		Insets m = getWindowInsets(clientWindow);
 		Point2D pos = client.localToScreen(0, 0);
 		
-		FxDockWindow w = FxDockFramework.createWindow();
+		FxDockWindow win = FxDockFramework.createWindowWithId(client.getDockPaneType());
 
-		w.setContent(client);
-		w.setX(pos.getX() - m.getLeft());
-		w.setY(pos.getY() - m.getTop());
-		w.setWidth(client.getWidth() + m.getRight() + m.getLeft());
-		w.setHeight(client.getHeight() + m.getTop() + m.getBottom());
-		
-		FxDockFramework.open(w);
+		win.setContent(client);
+		win.setX(pos.getX() - m.getLeft());
+		win.setY(pos.getY() - m.getTop());
+		win.setWidth(client.getWidth() + m.getRight() + m.getLeft());
+		win.setHeight(client.getHeight() + m.getTop() + m.getBottom());
+
+		if (!win.isShowing()) {
+			FxDockFramework.open(win);
+		}
 		
 		collapseEmptySpace(p);
 	}

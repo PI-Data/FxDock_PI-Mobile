@@ -34,9 +34,13 @@ public class FrameworkBase
 	}
 	
 	
-	public FxDockWindow createWindow()
+	public FxDockWindow createWindow( String windowPrefix )
 	{
-		return generator().createWindow();
+		return generator().createWindow(windowPrefix);
+	}
+
+	public FxDockWindow createWindowWithId( String dialogId ) {
+		return generator().createWindowWithId(dialogId);
 	}
 	
 	
@@ -64,9 +68,9 @@ public class FrameworkBase
 		{
 			try
 			{
-				FxDockWindow w = createWindow();
 				String prefix = FxDockSchema.windowID(i);
-				
+				FxDockWindow w = createWindow(prefix);
+
 				FxDockSchema.restoreWindow(prefix, w);
 				registerWindow(w);
 				

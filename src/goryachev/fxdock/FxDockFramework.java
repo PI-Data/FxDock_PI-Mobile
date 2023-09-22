@@ -12,7 +12,9 @@ public class FxDockFramework
 	/** a generator must be plugged into the framework to provide custom windows and panes */ 
 	public static interface Generator
 	{
-		public FxDockWindow createWindow();
+		public FxDockWindow createWindow( String windowPrefix );
+
+		public FxDockWindow createWindowWithId( String dialogId );
 		
 		public FxDockPane createPane(String type);
 	}
@@ -37,9 +39,14 @@ public class FxDockFramework
 	}
 	
 	
-	public static FxDockWindow createWindow()
+	public static FxDockWindow createWindow(String windowPrefix)
 	{
-		return base.createWindow();
+		return base.createWindow(windowPrefix);
+	}
+
+	public static FxDockWindow createWindowWithId(String dialogId)
+	{
+		return base.createWindowWithId(dialogId);
 	}
 	
 	

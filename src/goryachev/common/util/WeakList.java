@@ -148,4 +148,16 @@ public class WeakList<T>
 		sb.append("]");
 		return sb.toString();
 	}
+
+	public boolean contains( T window ) {
+		for(int i=0; i<list.size(); i++)
+		{
+			WeakReference<T> ref = list.get(i);
+			T item = ref.get();
+			if (window.equals( item )) {
+				return true;
+			}
+		}
+		return false;
+	}
 }
