@@ -722,7 +722,7 @@ public class DockTools
 		double w = client.getWidth();
 		double h = client.getHeight();
 
- 		FxDockWindow win = FxDockFramework.createWindowWithId(client.getDockPaneType());
+ 		FxDockWindow win = FxDockFramework.createWindowForDockPane( client );
 		win.setContent(client);		
 		
 		win.setX(screenx);
@@ -762,7 +762,7 @@ public class DockTools
 		Insets m = getWindowInsets(clientWindow);
 		Point2D pos = client.localToScreen(0, 0);
 		
-		FxDockWindow win = FxDockFramework.createWindowWithId(client.getDockPaneType());
+		FxDockWindow win = FxDockFramework.createWindowForDockPane( client );
 
 		win.setContent(client);
 		win.setX(pos.getX() - m.getLeft());
