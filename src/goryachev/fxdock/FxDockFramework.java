@@ -14,7 +14,7 @@ public class FxDockFramework
 	{
 		public FxDockWindow createWindow( String windowPrefix );
 
-		public FxDockWindow createWindowWithId( String dialogId );
+		public FxDockWindow createWindowForDockPane( FxDockPane client );
 		
 		public FxDockPane createPane(String type);
 	}
@@ -44,12 +44,10 @@ public class FxDockFramework
 		return base.createWindow(windowPrefix);
 	}
 
-	public static FxDockWindow createWindowWithId(String dialogId)
-	{
-		return base.createWindowWithId(dialogId);
+	public static FxDockWindow createWindowForDockPane( FxDockPane client ) {
+		return base.createWindowForDockPane( client );
 	}
-	
-	
+
 	public static FxDockPane createPane(String type)
 	{
 		return base.createPane(type);
