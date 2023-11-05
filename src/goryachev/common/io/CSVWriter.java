@@ -13,8 +13,8 @@ public class CSVWriter
 {
 	private Writer wr;
 	private char delimiter = ',';
-	private Character quoteChar = '"';
-	private Character escapeChar = '\\';
+	private Character quoteChar = Character.valueOf( '"' );
+	private Character escapeChar = Character.valueOf( '\\' );
 	private String lineEnd = "\r\n";
 	private boolean forceQuote;
 	private int column;
