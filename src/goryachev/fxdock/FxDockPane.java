@@ -44,7 +44,7 @@ public abstract class FxDockPane
 		titleField = new Label();
 		FX.style(titleField, FxDockStyles.TOOLBAR_TITLE);
 		titleField.textProperty().bindBidirectional(titleProperty());
-		titleField.setTooltip( new Tooltip("Text mit der Maus anklicken und ziehen die Ansicht umzuhängen.") );
+		titleField.setTooltip( new Tooltip("Text mit der Maus anklicken und ziehen um die Ansicht umzuhängen.") );
 		DragAndDropHandler.attach(titleField, this);
 		
 		parent.addListener((s,old,cur) -> setTabMode(cur instanceof FxDockTabPane));
