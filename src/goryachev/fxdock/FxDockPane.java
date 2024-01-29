@@ -15,6 +15,7 @@ import javafx.scene.Node;
 import javafx.scene.control.Button;
 import javafx.scene.control.Label;
 import javafx.scene.control.ToolBar;
+import javafx.scene.control.Tooltip;
 
 
 /**
@@ -43,6 +44,7 @@ public abstract class FxDockPane
 		titleField = new Label();
 		FX.style(titleField, FxDockStyles.TOOLBAR_TITLE);
 		titleField.textProperty().bindBidirectional(titleProperty());
+		titleField.setTooltip( new Tooltip("Text mit der Maus anklicken und ziehen die Ansicht umzuhängen.") );
 		DragAndDropHandler.attach(titleField, this);
 		
 		parent.addListener((s,old,cur) -> setTabMode(cur instanceof FxDockTabPane));
