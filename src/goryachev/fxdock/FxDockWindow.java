@@ -122,7 +122,7 @@ public abstract class FxDockWindow
 	}
 
 	
-	protected void actionClose()
+	public void actionClose()
 	{
 		OnWindowClosing ch = new OnWindowClosing(false);
 		confirmClosing(ch);

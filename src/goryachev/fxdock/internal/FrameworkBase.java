@@ -147,7 +147,7 @@ public class FrameworkBase
 		
 		w.showingProperty().addListener((src,old,cur) ->
 		{
-			if(!cur)
+			if(!cur.booleanValue())
 			{
 				unlinkWindow(w);
 			}
@@ -156,7 +156,7 @@ public class FrameworkBase
 		// FX cannot tell us which window is on top, so we have to do the dirty work ourselves
 		w.focusedProperty().addListener((src,old,v) ->
 		{
-			if(v)
+			if(v.booleanValue())
 			{
 				onWindowFocused(w);
 			}
