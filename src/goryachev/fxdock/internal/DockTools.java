@@ -174,8 +174,7 @@ public class DockTools
 				if(list == null)
 				{
 					list = new CList<>(ws.size());
-				}
-				list.add(w);
+				}list.add(w);
 			}
 		}
 		
@@ -217,9 +216,7 @@ public class DockTools
 		{
 			if(FxDockFramework.getWindowCount() > 1 && FxDockFramework.getWindows().get( 0 ) != w)
 			{
-				// TODO this is not used
-				// w.discardSettings = true;
-				w.close();
+				w.actionClose();
 				return true;
 			}
 		}
