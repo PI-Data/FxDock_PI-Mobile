@@ -911,6 +911,9 @@ public class DockTools
 	/** moves client pane to new position, creating necessary splits or tabs */
 	public static void moveToPane(FxDockPane client, Pane target, Where where)
 	{
+		// Before the former parent window will be closed, tell the FXDockPane it will be moved.
+		client.actionMoveToPane(target);
+
 		BeforeDrop b = new BeforeDrop(client, target);
 		Node targetParent = getParent(target);
 

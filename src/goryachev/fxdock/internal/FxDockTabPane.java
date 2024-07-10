@@ -70,11 +70,17 @@ public class FxDockTabPane
 		{
 			FxDockPane p = (FxDockPane)n;
 			t.setGraphic(p.titleField);
-			t.setOnClosed((ev) -> 
+			t.setOnClosed((ev) ->
 			{
-				Node pp = DockTools.getParent(this);
-				DockTools.collapseEmptySpace(pp);
-			});
+
+				if (nd instanceof FxDockPane) {
+					((FxDockPane) nd).actionClose();
+				}
+				else {
+					Node pp = DockTools.getParent(this);
+					DockTools.collapseEmptySpace(pp);
+				}
+			} );
 		}
 		return t;
 	}

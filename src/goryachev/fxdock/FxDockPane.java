@@ -16,6 +16,7 @@ import javafx.scene.control.Button;
 import javafx.scene.control.Label;
 import javafx.scene.control.ToolBar;
 import javafx.scene.control.Tooltip;
+import javafx.scene.layout.Pane;
 
 
 /**
@@ -28,7 +29,8 @@ public abstract class FxDockPane
 	extends FxDockBorderPane
 {
 	public final FxAction closeAction = new FxAction(this::actionClose);
-	public final FxAction popToWindowAction = new FxAction(this::actionPopToWindow); 
+	public final FxAction popToWindowAction = new FxAction(this::actionPopToWindow);
+
 	public final Label titleField;
 	private final ReadOnlyBooleanWrapper tabMode = new ReadOnlyBooleanWrapper();
 	private final SimpleStringProperty title = new SimpleStringProperty();
@@ -166,5 +168,9 @@ public abstract class FxDockPane
 	public void actionPopToWindow()
 	{
 		DockTools.moveToNewWindow(this);
+	}
+
+	public void actionMoveToPane( Pane target ) {
+		// Should be overridden in concrete class.
 	}
 }
