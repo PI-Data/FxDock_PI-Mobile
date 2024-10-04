@@ -39,6 +39,11 @@ public class FrameworkBase
 		return generator().createWindow(windowPrefix);
 	}
 
+	public FxDockWindow createWindowWithId( String dialogId )
+	{
+		return generator().createWindowWithId(dialogId);
+	}
+
 	public FxDockWindow createWindowForDockPane( FxDockPane client ) {
 		return generator().createWindowForDockPane( client );
 	}
