@@ -1,5 +1,6 @@
 // Copyright © 2016-2023 Andy Goryachev <andy@goryachev.com>
 package goryachev.fxdock;
+import de.pidata.service.base.ParameterList;
 import goryachev.fxdock.internal.FrameworkBase;
 import java.util.List;
 
@@ -14,11 +15,11 @@ public class FxDockFramework
 	{
 		public FxDockWindow createWindow( String windowPrefix );
 
-		public FxDockWindow createWindowWithId( String dialogId );
+		public FxDockWindow createWindowWithId( String dialogId, ParameterList parameterList );
 
 		public FxDockWindow createWindowForDockPane( FxDockPane client );
 		
-		public FxDockPane createPane(String type);
+		public FxDockPane createPane(String type, ParameterList parameterList );
 	}
 	
 	//
@@ -46,17 +47,17 @@ public class FxDockFramework
 		return base.createWindow(windowPrefix);
 	}
 
-	public static FxDockWindow createWindowForWithId( String dialogId ) {
-		return base.createWindowWithId( dialogId );
+	public static FxDockWindow createWindowForWithId( String dialogId, ParameterList parameterList ) {
+		return base.createWindowWithId( dialogId, parameterList );
 	}
 
 	public static FxDockWindow createWindowForDockPane( FxDockPane client ) {
 		return base.createWindowForDockPane( client );
 	}
 
-	public static FxDockPane createPane(String type)
+	public static FxDockPane createPane(String type, ParameterList parameterList )
 	{
-		return base.createPane(type);
+		return base.createPane(type, parameterList);
 	}
 	
 	

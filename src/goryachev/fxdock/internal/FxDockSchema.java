@@ -1,5 +1,6 @@
 // Copyright © 2016-2023 Andy Goryachev <andy@goryachev.com>
 package goryachev.fxdock.internal;
+import de.pidata.service.base.AbstractParameterList;
 import goryachev.common.util.GlobalSettings;
 import goryachev.common.util.SB;
 import goryachev.common.util.SStream;
@@ -177,7 +178,7 @@ public class FxDockSchema
 		else if(TYPE_PANE.equals(t))
 		{
 			String type = s.nextString();
-			return FxDockFramework.createPane(type);
+			return FxDockFramework.createPane(type, AbstractParameterList.EMPTY );
 		}
 		else if(TYPE_HSPLIT.equals(t))
 		{

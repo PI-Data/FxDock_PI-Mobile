@@ -1,5 +1,7 @@
 // Copyright © 2016-2023 Andy Goryachev <andy@goryachev.com>
 package goryachev.fxdock.internal;
+import de.pidata.service.base.AbstractParameterList;
+import de.pidata.service.base.ParameterList;
 import goryachev.common.log.Log;
 import goryachev.common.util.CList;
 import goryachev.common.util.GlobalSettings;
@@ -39,18 +41,18 @@ public class FrameworkBase
 		return generator().createWindow(windowPrefix);
 	}
 
-	public FxDockWindow createWindowWithId( String dialogId )
+	public FxDockWindow createWindowWithId( String dialogId, ParameterList parameterList )
 	{
-		return generator().createWindowWithId(dialogId);
+		return generator().createWindowWithId(dialogId, parameterList);
 	}
 
 	public FxDockWindow createWindowForDockPane( FxDockPane client ) {
 		return generator().createWindowForDockPane( client );
 	}
 
-	public FxDockPane createPane(String type)
+	public FxDockPane createPane(String type, ParameterList parameterList)
 	{
-		return generator().createPane(type);
+		return generator().createPane(type, parameterList);
 	}
 	
 	
